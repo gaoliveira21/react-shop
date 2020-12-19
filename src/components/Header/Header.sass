@@ -8,7 +8,7 @@
   justify-content: space-between
   align-items: center
   box-shadow: 0px 4px 7px 2px rgba(0,0,0,0.29)
-  padding: 0 16px
+  padding: 10px 16px
 
   .H__NavList
     display: flex
@@ -28,7 +28,7 @@
         &:hover
           color: darken($white, 15%)
 
-        .L__Block
+        .L__Wrapper
           position: relative
 
         .L__Badge
@@ -47,3 +47,40 @@
         .L__Icon
           font-size: 32px
           margin-right: 8px
+
+  .H__SearchWrapper
+    width: 40%
+    height: 100%
+    display: flex
+    align-items: center
+
+    .SW__Input
+      width: 90%
+      border: 0
+      background: $white
+      color: $black
+      height: 100%
+      padding: 8px
+      border-radius: 4px 0 0 4px
+
+      &::placeholder
+        color: $black
+        font-weight: bold
+
+    .SW__Button
+      border: 0
+      outline: none
+      background: $primary
+      color: $white
+      height: 100%
+      width: 10%
+      cursor: pointer
+      border-radius: 0 4px 4px 0
+      font-size: 1rem
+      display: flex
+      align-items: center
+      justify-content: center
+      transition: background 0.2s
+
+      &:hover
+        background: darken($primary, 3%)
