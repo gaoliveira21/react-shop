@@ -2,13 +2,16 @@ import React, { ReactElement } from 'react'
 import { FaShoppingBag, FaShoppingCart, FaSignInAlt, FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
+import logo from '@/assets/logo.svg'
+
 import css from './Header.sass'
 
 export const Header: React.FC = (): ReactElement => {
   return (
     <header className={css.Header}>
-      <div>
-        Logo
+      <div className={css.H__Brand}>
+        <img src={logo} alt="Blay"/>
+        <strong className={css.B__Text}>Blay store</strong>
       </div>
       <div className={css.H__SearchWrapper}>
         <input

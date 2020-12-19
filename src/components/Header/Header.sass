@@ -10,43 +10,14 @@
   box-shadow: 0px 4px 7px 2px rgba(0,0,0,0.29)
   padding: 10px 16px
 
-  .H__NavList
+  .H__Brand
     display: flex
     align-items: center
 
-    .NL__Item
-      padding: 0 8px
-
-      .I__Link
-        @extend .H__NavList
-        text-decoration: none
-        color: $white
-        font-weight: bold
-        font-size: 1rem
-        transition: color 0.2s
-
-        &:hover
-          color: darken($white, 15%)
-
-        .L__Wrapper
-          position: relative
-
-        .L__Badge
-          position: absolute
-          display: flex
-          align-items: center
-          justify-content: center
-          top: -5px
-          right: 0
-          background: $primary
-          width: 20px
-          height: 20px
-          font-size: 0.8rem
-          border-radius: 50%
-
-        .L__Icon
-          font-size: 32px
-          margin-right: 8px
+    .B__Text
+      color: $white
+      margin-left: 5px
+      font-weight: bold
 
   .H__SearchWrapper
     width: 40%
@@ -84,3 +55,41 @@
 
       &:hover
         background: darken($primary, 3%)
+
+  .H__NavList
+    display: flex
+    align-items: center
+
+    .NL__Item
+      padding: 0 8px
+
+      .I__Link
+        @extend .H__NavList
+        text-decoration: none
+        color: $white
+        font-weight: bold
+        font-size: 1rem
+        transition: color 0.2s
+
+        &:hover
+          color: darken($white, 15%)
+
+        .L__Wrapper
+          position: relative
+
+        .L__Badge
+          position: absolute
+          display: flex
+          align-items: center
+          justify-content: center
+          top: -5px
+          right: 0
+          background: $primary
+          width: 20px
+          height: 20px
+          font-size: 0.8rem
+          border-radius: 50%
+
+        .L__Icon
+          font-size: 32px
+          margin-right: 8px
