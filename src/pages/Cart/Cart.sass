@@ -58,6 +58,7 @@
             cursor: pointer
             color: $darkPrimary
             font-size: 1.2rem
+            background: transparent
 
           .A__Input
             width: 42px
@@ -73,8 +74,52 @@
           font-size: 1.4rem
           cursor: pointer
           color: $darkPrimary
+          background: transparent
 
-    .W__Payments
+    .W__Purchase
       width: 100%
-      background: $white
-      height: 200px
+
+      .P__Wrapper
+        background: $white
+        padding: 16px
+        border-radius: 4px
+
+      .P__Title
+        color: $black
+        font-size: 1.2rem
+        font-weight: bold
+        margin-bottom: 8px
+
+      .P__Details
+        padding: 16px 0
+        border-bottom: 1px solid $ligthGray
+        display: flex
+        align-items: center
+        justify-content: space-between
+
+        .D__Text
+          font-weight: bold
+
+      .P__Button
+        margin-top: 22px
+        border: 0
+        width: 100%
+        padding: 16px
+        border-radius: 4px
+        color: $white
+        font-weight: bold
+        font-size: 1.4rem
+        cursor: pointer
+        transition: background 0.2s
+
+      .P__FinishButton
+        background: $green
+
+        &:hover
+          background: darken($green, 6%)
+
+      .P__BuyButton
+        background: $primary
+
+        &:hover
+          background: darken($primary, 6%)

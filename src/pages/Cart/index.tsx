@@ -20,7 +20,7 @@ export const Cart: React.FC = (): ReactElement => {
                 <th className={css.T__Head}>Quantidade</th>
                 <th className={css.T__Head}>Preço</th>
                 <th className={css.T__Head}>Subtotal</th>
-                <th />
+                <th className={css.T__Head} />
               </tr>
             </thead>
             <tbody>
@@ -138,7 +138,25 @@ export const Cart: React.FC = (): ReactElement => {
               </tr>
             </tbody>
           </table>
-          <aside className={css.W__Payments}></aside>
+          <aside className={css.W__Purchase}>
+            <div className={css.P__Wrapper}>
+              <h2 className={css.P__Title}>Resumo da compra</h2>
+              <div className={css.P__Details}>
+                <strong>Descontos:</strong>
+                <strong className={css.D__Text}>R$ 0,00</strong>
+              </div>
+              <div className={css.P__Details}>
+                <strong>Valor total:</strong>
+                <strong className={css.D__Text}>R$ 2080,20</strong>
+              </div>
+              <button type="button" className={`${css.P__FinishButton} ${css.P__Button}`}>
+                Finalizar compra
+              </button>
+              <button type="button" className={`${css.P__BuyButton} ${css.P__Button}`}>
+                Continuar comprando
+              </button>
+            </div>
+          </aside>
         </div>
       </section>
     </>
