@@ -9,10 +9,12 @@ import css from './Header.sass'
 export const Header: React.FC = (): ReactElement => {
   return (
     <header className={css.Header}>
-      <div className={css.H__Brand}>
-        <img src={logo} alt="Blay"/>
-        <strong className={css.B__Text}>Blay store</strong>
-      </div>
+      <Link to="/" className={css.H__Link}>
+        <div className={css.H__Brand}>
+          <img src={logo} alt="Blay" />
+          <strong className={css.B__Text}>Blay store</strong>
+        </div>
+      </Link>
       <div className={css.H__SearchWrapper}>
         <input
           type="text"
@@ -28,7 +30,7 @@ export const Header: React.FC = (): ReactElement => {
       </div>
       <ul className={css.H__NavList}>
         <li className={css.NL__Item}>
-          <Link to="#!" className={css.I__Link}>
+          <Link to="/store" className={css.I__Link}>
             <FaShoppingBag className={css.L__Icon} />
             Produtos
           </Link>

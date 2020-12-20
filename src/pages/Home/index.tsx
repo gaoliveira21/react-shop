@@ -1,7 +1,9 @@
 import React, { ReactElement } from 'react'
 
+import { Header } from '@/components'
+
 export const Home: React.FC = (): ReactElement => {
   return (
-    <h1>Home</h1>
+    <Header />
   )
 }
