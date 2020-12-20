@@ -1,0 +1,93 @@
+@import "../../styles/_colors"
+
+.ProductCard
+  width: 100%
+  background: $white
+  border-radius: 8px
+  padding: 16px
+
+  .PC__Image
+    width: 100%
+
+  .PC__Name
+    font-size: 1.2rem
+    line-height: 1.2rem
+    font-weight: bold
+
+    .N__Link
+      text-decoration: none
+      color: $black
+      transition: color 0.2s
+
+      &:hover
+        color: $primary
+
+  .PC__Prices
+    padding: 8px 0
+    font-size: 1rem
+    line-height: 1.4rem
+    color: lighten($black, 30%)
+
+    .P__Total
+      font-weight: bold
+      color: $black
+
+    .P__Installments
+      color: $black
+
+  .PC__Tags
+    display: flex
+    margin-bottom: 8px
+
+    .T__Item
+      padding: 4px
+      border: 1px solid $black
+      color: $black
+      border-radius: 8px
+      font-size: 0.8rem
+      margin-right: 5px
+
+  .PC__BuyButton
+    border: 0
+    background: $green
+    width: 100%
+    padding: 16px
+    border-radius: 4px
+    cursor: pointer
+    display: flex
+    align-items: center
+    justify-content: space-between
+    transition: background 0.2s
+
+    &:hover
+      background: darken($green, 6%)
+
+    .B__Text
+      width: 80%
+      display: flex
+      align-items: center
+      justify-content: center
+      font-weight: bold
+      font-size: 1.6rem
+      color: $white
+
+    .B__Cart
+      color: $white
+      font-size: 1.4rem
+      width: 20%
+      position: relative
+      display: flex
+      align-self: center
+
+      .C__Badge
+        position: absolute
+        display: flex
+        align-items: center
+        justify-content: center
+        top: -7px
+        right: 10px
+        background: $primary
+        width: 20px
+        height: 20px
+        font-size: 0.8rem
+        border-radius: 50%
