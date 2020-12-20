@@ -1,0 +1,69 @@
+@import "../../styles/_colors"
+
+.Dropdown
+  width: 100%
+  display: flex
+  align-items: center
+  height: 38px
+  position: relative
+
+  .D__Input
+    width: 85%
+    border: 0
+    border-radius: 4px 0 0 0
+    background: $white
+    height: 100%
+    padding: 8px
+    cursor: pointer
+    font-weight: bold
+
+    &::placeholder
+      color: $black
+      font-weight: bold
+
+  .D__Button
+    border: 0
+    outline: none
+    background: $primary
+    color: $white
+    height: 100%
+    width: 15%
+    cursor: pointer
+    border-radius: 0 4px 0 0
+    font-size: 1rem
+    display: flex
+    align-items: center
+    justify-content: center
+    transition: background 0.2s
+
+    &:hover
+      background: darken($primary, 3%)
+
+  .D__Options
+    position: absolute
+    top: 38px
+    width: 85%
+    background: transparent
+    border-top: 1px solid $ligthGray
+    border-radius: 0 0 4px 4px
+
+    .O__Item
+      padding: 14px 12px
+      width: 100%
+      cursor: pointer
+      color: $black
+      background: $white
+      font-weight: bold
+
+      &:hover
+        background: darken($white, 5%)
+
+      &:last-child
+        border-radius: 0 0 4px 4px
+
+      &--active
+        background: lighten($black, 3%)
+        color: $white
+
+        &:hover
+          background: lighten($black, 10%)
