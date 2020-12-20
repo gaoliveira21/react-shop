@@ -36,7 +36,7 @@ export const Header: React.FC = (): ReactElement => {
           </Link>
         </li>
         <li className={css.NL__Item}>
-          <Link to="#!" className={css.I__Link}>
+          <Link to="/cart" className={css.I__Link}>
             <div className={css.L__Wrapper}>
               <FaShoppingCart className={css.L__Icon} />
               <span className={css.L__Badge}>3</span>
