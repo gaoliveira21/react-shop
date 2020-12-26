@@ -27,7 +27,7 @@ export const Store: React.FC = (): ReactElement => {
       <section className={css.Store}>
         <h1 className={css.S__Title}>Produtos</h1>
         <header className={css.S__Header}>
-          <strong className={css.H__TotalItens}>210 produtos encontrados</strong>
+          <strong className={css.H__TotalItens}>{products.length} produtos encontrados</strong>
           <div className={css.H__DropdownWrapper}>
             <Dropdown />
           </div>
