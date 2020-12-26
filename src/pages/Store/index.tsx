@@ -1,17 +1,23 @@
 import React, { ReactElement, useEffect, useState } from 'react'
 
 import { Header, Dropdown, ProductCard } from '@/components'
-import { IProductResponse } from '@/shared/definitions/product'
+import { IProductResponse, IParsedProducts } from '@/shared/definitions/product'
 import { httpClient } from '@/services/http/client'
+import { formatMoney } from '@/shared/helpers/format'
 
 import css from './Store.sass'
 
 export const Store: React.FC = (): ReactElement => {
-  const [products, setProducts] = useState<IProductResponse[]>([])
+  const [products, setProducts] = useState<IParsedProducts[]>([])
 
   useEffect(() => {
     httpClient().get<IProductResponse[]>({ url: 'products' }).then(response => {
-      setProducts(response.data)
+      const parsedProducts: IParsedProducts[] = response.data.map(product => ({
+        ...product,
+        formattedPrice: formatMoney(product.price),
+        formattedInstallments: formatMoney(product.price / 10)
+      }))
+      setProducts(parsedProducts)
     })
   }, [])
 
