@@ -1,4 +1,6 @@
-type IProduct = {
+import { CartActionsTypes } from './actions'
+
+export type IProduct = {
   id: string,
   image: string,
   title: string,
@@ -12,7 +14,9 @@ export type ICartState = {
   total: number
 }
 
-export type IAction = {
-  type: string
+export type ICartAction = {
+  type: CartActionsTypes
   payload: Record<string, unknown>
 }
+
+export type ICartDispatch = (args: ICartAction) => ICartAction
