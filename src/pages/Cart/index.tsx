@@ -4,11 +4,17 @@ import { useSelector } from 'react-redux'
 
 import { Header } from '@/components'
 import { IRootState } from '@/store/store'
+import { formatMoney } from '@/shared/helpers/format'
 
 import css from './Cart.sass'
 
 export const Cart: React.FC = (): ReactElement => {
   const cart = useSelector((state: IRootState) => state.cart)
+
+  const products = cart.products.map(product => ({
+    ...product,
+    formattedSubtotal: formatMoney(product.price)
+  }))
 
   return (
     <>
@@ -31,7 +37,7 @@ export const Cart: React.FC = (): ReactElement => {
                     </tr>
                   </thead>
                   <tbody>
-                    {cart.products.map(product => (
+                    {products.map(product => (
                       <tr key={product.id} className={css.T__Row}>
                         <td className={css.T__Data}>
                           <img
@@ -52,8 +58,8 @@ export const Cart: React.FC = (): ReactElement => {
                             </button>
                           </div>
                         </td>
-                        <td className={css.T__Data}>{product.price}</td>
-                        <td className={css.T__Data}>{product.subtotal}</td>
+                        <td className={css.T__Data}>{product.formattedPrice}</td>
+                        <td className={css.T__Data}>{product.formattedSubtotal}</td>
                         <td className={css.T__Data}>
                           <button className={css.D__Remove} type="button">
                             <MdDeleteForever />

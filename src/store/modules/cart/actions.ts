@@ -1,4 +1,5 @@
-import { ICartAction, IProduct } from './types'
+import { ICartAction } from './types'
+import { IParsedProducts } from '@/shared/definitions/product'
 
 export enum CartActionsTypes {
   ADD_SUCCESS = '@cart/ADD_SUCCESS',
@@ -6,7 +7,7 @@ export enum CartActionsTypes {
   UPDATE_AMOUNT_SUCCESS = '@cart/UPDATE_AMOUNT_SUCCESS'
 }
 
-export const addToCartSuccess = (product: IProduct): ICartAction => {
+export const addToCartSuccess = (product: IParsedProducts): ICartAction => {
   return {
     type: CartActionsTypes.ADD_SUCCESS,
     payload: { product }

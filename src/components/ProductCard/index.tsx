@@ -1,8 +1,11 @@
 import React, { ReactElement } from 'react'
 import { Link } from 'react-router-dom'
 import { FaShoppingCart } from 'react-icons/fa'
+import { useDispatch } from 'react-redux'
 
 import { IParsedProducts } from '@/shared/definitions/product'
+import { ICartDispatch } from '@/store/modules/cart/types'
+import { addToCartSuccess } from '@/store/modules/cart/actions'
 
 import css from './ProductCard.sass'
 
@@ -11,6 +14,8 @@ type IProps = {
 }
 
 export const ProductCard: React.FC<IProps> = ({ data }): ReactElement => {
+  const dispatch: ICartDispatch = useDispatch()
+
   return (
     <div className={css.ProductCard}>
       <img
@@ -36,6 +41,7 @@ export const ProductCard: React.FC<IProps> = ({ data }): ReactElement => {
       <button
         type="button"
         className={css.PC__BuyButton}
+        onClick={() => dispatch(addToCartSuccess(data))}
       >
         <strong className={css.B__Text}>
           COMPRAR

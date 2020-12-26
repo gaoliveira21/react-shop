@@ -1,12 +1,9 @@
 import { CartActionsTypes } from './actions'
+import { IParsedProducts } from '@/shared/definitions/product'
 
-export type IProduct = {
-  id: string,
-  image: string,
-  title: string,
-  amount: number
-  price: number,
+export interface IProduct extends IParsedProducts {
   subtotal: number
+  amount: number
 }
 
 export type ICartState = {
