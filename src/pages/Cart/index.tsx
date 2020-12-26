@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { MdRemove, MdAdd, MdDeleteForever } from 'react-icons/md'
+import { MdRemove, MdAdd, MdDeleteForever, MdRemoveShoppingCart } from 'react-icons/md'
 import { useSelector } from 'react-redux'
 
 import { Header } from '@/components'
@@ -65,7 +65,10 @@ export const Cart: React.FC = (): ReactElement => {
                 </>
                 )
               : (
-                <p>Carrinho vazio</p>
+                <div className={css.T__Empty}>
+                  <MdRemoveShoppingCart className={css.E__Icon} />
+                  <p className={css.E__Text}>Carrinho vazio</p>
+                </div>
                 )}
           </table>
           <aside className={css.W__Purchase}>
