@@ -7,8 +7,9 @@ type IProduct = {
   subtotal: number
 }
 
-export type IState = {
-  cart: IProduct[]
+export type ICartState = {
+  products: IProduct[]
+  total: number
 }
 
 export type IAction = {

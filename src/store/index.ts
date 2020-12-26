@@ -1,4 +1,5 @@
-import { createStore } from 'redux'
+import { createStore, Store } from 'redux'
+import { IRootState } from './store'
 import rootReducer from './modules/rootReducer'
 
-export const store = createStore(rootReducer)
+export const store: Store<IRootState> = createStore(rootReducer)

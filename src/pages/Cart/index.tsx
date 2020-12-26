@@ -1,11 +1,15 @@
 import React, { ReactElement } from 'react'
 import { MdRemove, MdAdd, MdDeleteForever } from 'react-icons/md'
+import { useSelector } from 'react-redux'
 
 import { Header } from '@/components'
+import { IRootState } from '@/store/store'
 
 import css from './Cart.sass'
 
 export const Cart: React.FC = (): ReactElement => {
+  const cart = useSelector((state: IRootState) => state.cart)
+
   return (
     <>
       <Header />
@@ -24,118 +28,36 @@ export const Cart: React.FC = (): ReactElement => {
               </tr>
             </thead>
             <tbody>
-              <tr className={css.T__Row}>
-                <td className={css.T__Data}>
-                  <img
-                    src="https://static.netshoes.com.br/produtos/tenis-adidas-duramo-sl-feminino/56/NQQ-4267-156/NQQ-4267-156_zoom1.jpg?ts=1605623371&ims=326x,%20https://static.netshoes.com.br/produtos/tenis-adidas-duramo-sl-feminino/56/NQQ-4267-156/NQQ-4267-156_zoom1.jpg?ts=1605623371&ims=652x"
-                    alt="Tênis Adidas Duramo SL Feminino"
-                    className={css.D__Image}
-                  />
-                </td>
-                <td className={css.T__Data}>Tênis Adidas Duramo SL Feminino</td>
-                <td className={css.T__Data}>
-                  <div className={css.D__Amount}>
-                    <button type="button" className={css.A__Button}>
-                      <MdAdd />
+              {cart.products.map(product => (
+                <tr key={product.id} className={css.T__Row}>
+                  <td className={css.T__Data}>
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className={css.D__Image}
+                    />
+                  </td>
+                  <td className={css.T__Data}>{product.title}</td>
+                  <td className={css.T__Data}>
+                    <div className={css.D__Amount}>
+                      <button type="button" className={css.A__Button}>
+                        <MdAdd />
+                      </button>
+                      <input type="text" readOnly value={product.amount} className={css.A__Input} />
+                      <button type="button" className={css.A__Button}>
+                        <MdRemove />
+                      </button>
+                    </div>
+                  </td>
+                  <td className={css.T__Data}>{product.price}</td>
+                  <td className={css.T__Data}>{product.subtotal}</td>
+                  <td className={css.T__Data}>
+                    <button className={css.D__Remove} type="button">
+                      <MdDeleteForever />
                     </button>
-                    <input type="text" readOnly value="1" className={css.A__Input} />
-                    <button type="button" className={css.A__Button}>
-                      <MdRemove />
-                    </button>
-                  </div>
-                </td>
-                <td className={css.T__Data}>R$ 159,99</td>
-                <td className={css.T__Data}>R$ 159,99</td>
-                <td className={css.T__Data}>
-                  <button className={css.D__Remove} type="button">
-                    <MdDeleteForever />
-                  </button>
-                </td>
-              </tr>
-              <tr className={css.T__Row}>
-                <td className={css.T__Data}>
-                  <img
-                    src="https://static.netshoes.com.br/produtos/tenis-adidas-duramo-sl-feminino/56/NQQ-4267-156/NQQ-4267-156_zoom1.jpg?ts=1605623371&ims=326x,%20https://static.netshoes.com.br/produtos/tenis-adidas-duramo-sl-feminino/56/NQQ-4267-156/NQQ-4267-156_zoom1.jpg?ts=1605623371&ims=652x"
-                    alt="Tênis Adidas Duramo SL Feminino"
-                    className={css.D__Image}
-                  />
-                </td>
-                <td className={css.T__Data}>Tênis Adidas Duramo SL Feminino</td>
-                <td className={css.T__Data}>
-                  <div className={css.D__Amount}>
-                    <button type="button" className={css.A__Button}>
-                      <MdAdd />
-                    </button>
-                    <input type="text" readOnly value="1" className={css.A__Input} />
-                    <button type="button" className={css.A__Button}>
-                      <MdRemove />
-                    </button>
-                  </div>
-                </td>
-                <td className={css.T__Data}>R$ 159,99</td>
-                <td className={css.T__Data}>R$ 159,99</td>
-                <td className={css.T__Data}>
-                  <button className={css.D__Remove} type="button">
-                    <MdDeleteForever />
-                  </button>
-                </td>
-              </tr>
-              <tr className={css.T__Row}>
-                <td className={css.T__Data}>
-                  <img
-                    src="https://static.netshoes.com.br/produtos/tenis-adidas-duramo-sl-feminino/56/NQQ-4267-156/NQQ-4267-156_zoom1.jpg?ts=1605623371&ims=326x,%20https://static.netshoes.com.br/produtos/tenis-adidas-duramo-sl-feminino/56/NQQ-4267-156/NQQ-4267-156_zoom1.jpg?ts=1605623371&ims=652x"
-                    alt="Tênis Adidas Duramo SL Feminino"
-                    className={css.D__Image}
-                  />
-                </td>
-                <td className={css.T__Data}>Tênis Adidas Duramo SL Feminino</td>
-                <td className={css.T__Data}>
-                  <div className={css.D__Amount}>
-                    <button type="button" className={css.A__Button}>
-                      <MdAdd />
-                    </button>
-                    <input type="text" readOnly value="1" className={css.A__Input} />
-                    <button type="button" className={css.A__Button}>
-                      <MdRemove />
-                    </button>
-                  </div>
-                </td>
-                <td className={css.T__Data}>R$ 159,99</td>
-                <td className={css.T__Data}>R$ 159,99</td>
-                <td className={css.T__Data}>
-                  <button className={css.D__Remove} type="button">
-                    <MdDeleteForever />
-                  </button>
-                </td>
-              </tr>
-              <tr className={css.T__Row}>
-                <td className={css.T__Data}>
-                  <img
-                    src="https://static.netshoes.com.br/produtos/tenis-adidas-duramo-sl-feminino/56/NQQ-4267-156/NQQ-4267-156_zoom1.jpg?ts=1605623371&ims=326x,%20https://static.netshoes.com.br/produtos/tenis-adidas-duramo-sl-feminino/56/NQQ-4267-156/NQQ-4267-156_zoom1.jpg?ts=1605623371&ims=652x"
-                    alt="Tênis Adidas Duramo SL Feminino"
-                    className={css.D__Image}
-                  />
-                </td>
-                <td className={css.T__Data}>Tênis Adidas Duramo SL Feminino</td>
-                <td className={css.T__Data}>
-                  <div className={css.D__Amount}>
-                    <button type="button" className={css.A__Button}>
-                      <MdAdd />
-                    </button>
-                    <input type="text" readOnly value="1" className={css.A__Input} />
-                    <button type="button" className={css.A__Button}>
-                      <MdRemove />
-                    </button>
-                  </div>
-                </td>
-                <td className={css.T__Data}>R$ 159,99</td>
-                <td className={css.T__Data}>R$ 159,99</td>
-                <td className={css.T__Data}>
-                  <button className={css.D__Remove} type="button">
-                    <MdDeleteForever />
-                  </button>
-                </td>
-              </tr>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
           <aside className={css.W__Purchase}>
@@ -147,7 +69,7 @@ export const Cart: React.FC = (): ReactElement => {
               </div>
               <div className={css.P__Details}>
                 <strong>Valor total:</strong>
-                <strong className={css.D__Text}>R$ 2080,20</strong>
+                <strong className={css.D__Text}>{cart.total}</strong>
               </div>
               <button type="button" className={`${css.P__FinishButton} ${css.P__Button}`}>
                 Finalizar compra

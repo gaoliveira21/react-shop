@@ -1,10 +1,11 @@
-import { IState, IAction } from './types'
+import { ICartState, IAction } from './types'
 
 const initialState = {
-  cart: []
+  products: [],
+  total: 0
 }
 
-export const cart = (state: IState = initialState, action: IAction): IState => {
+export const cart = (state: ICartState = initialState, action: IAction): ICartState => {
   switch (action.type) {
     default:
       return state
