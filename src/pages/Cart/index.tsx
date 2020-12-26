@@ -17,48 +17,56 @@ export const Cart: React.FC = (): ReactElement => {
         <h1 className={css.C__Title}>Meu Carrinho</h1>
         <div className={css.C__Wrapper}>
           <table className={css.W__Table}>
-            <thead>
-              <tr>
-                <th className={css.T__Head} />
-                <th className={css.T__Head}>Item</th>
-                <th className={css.T__Head}>Quantidade</th>
-                <th className={css.T__Head}>Preço</th>
-                <th className={css.T__Head}>Subtotal</th>
-                <th className={css.T__Head} />
-              </tr>
-            </thead>
-            <tbody>
-              {cart.products.map(product => (
-                <tr key={product.id} className={css.T__Row}>
-                  <td className={css.T__Data}>
-                    <img
-                      src={product.image}
-                      alt={product.title}
-                      className={css.D__Image}
-                    />
-                  </td>
-                  <td className={css.T__Data}>{product.title}</td>
-                  <td className={css.T__Data}>
-                    <div className={css.D__Amount}>
-                      <button type="button" className={css.A__Button}>
-                        <MdAdd />
-                      </button>
-                      <input type="text" readOnly value={product.amount} className={css.A__Input} />
-                      <button type="button" className={css.A__Button}>
-                        <MdRemove />
-                      </button>
-                    </div>
-                  </td>
-                  <td className={css.T__Data}>{product.price}</td>
-                  <td className={css.T__Data}>{product.subtotal}</td>
-                  <td className={css.T__Data}>
-                    <button className={css.D__Remove} type="button">
-                      <MdDeleteForever />
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
+            {cart.products.length > 0
+              ? (
+                <>
+                  <thead>
+                    <tr>
+                      <th className={css.T__Head} />
+                      <th className={css.T__Head}>Item</th>
+                      <th className={css.T__Head}>Quantidade</th>
+                      <th className={css.T__Head}>Preço</th>
+                      <th className={css.T__Head}>Subtotal</th>
+                      <th className={css.T__Head} />
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {cart.products.map(product => (
+                      <tr key={product.id} className={css.T__Row}>
+                        <td className={css.T__Data}>
+                          <img
+                            src={product.image}
+                            alt={product.title}
+                            className={css.D__Image}
+                          />
+                        </td>
+                        <td className={css.T__Data}>{product.title}</td>
+                        <td className={css.T__Data}>
+                          <div className={css.D__Amount}>
+                            <button type="button" className={css.A__Button}>
+                              <MdAdd />
+                            </button>
+                            <input type="text" readOnly value={product.amount} className={css.A__Input} />
+                            <button type="button" className={css.A__Button}>
+                              <MdRemove />
+                            </button>
+                          </div>
+                        </td>
+                        <td className={css.T__Data}>{product.price}</td>
+                        <td className={css.T__Data}>{product.subtotal}</td>
+                        <td className={css.T__Data}>
+                          <button className={css.D__Remove} type="button">
+                            <MdDeleteForever />
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </>
+                )
+              : (
+                <p>Carrinho vazio</p>
+                )}
           </table>
           <aside className={css.W__Purchase}>
             <div className={css.P__Wrapper}>
