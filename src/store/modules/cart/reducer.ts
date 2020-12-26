@@ -1,11 +1,10 @@
-type IAction = {
-  type: string
-  payload: Record<string, any>
+import { IState, IAction } from './types'
+
+const initialState = {
+  cart: []
 }
 
-const initialState = []
-
-export const cart = (state = initialState, action: IAction) => {
+export const cart = (state: IState = initialState, action: IAction): IState => {
   switch (action.type) {
     default:
       return state
