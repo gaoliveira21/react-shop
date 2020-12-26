@@ -1,12 +1,17 @@
 import React, { ReactElement } from 'react'
 import { FaShoppingBag, FaShoppingCart, FaSignInAlt, FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
+import { IRootState } from '@/store/store'
 
 import logo from '@/assets/logo.svg'
 
 import css from './Header.sass'
 
 export const Header: React.FC = (): ReactElement => {
+  const cartLength = useSelector((state: IRootState) => state.cart.products.length)
+
   return (
     <header className={css.Header}>
       <Link to="/" className={css.H__Link}>
@@ -39,7 +44,7 @@ export const Header: React.FC = (): ReactElement => {
           <Link to="/cart" className={css.I__Link}>
             <div className={css.L__Wrapper}>
               <FaShoppingCart className={css.L__Icon} />
-              <span className={css.L__Badge}>3</span>
+              <span className={css.L__Badge}>{cartLength}</span>
             </div>
             Carrinho
           </Link>
