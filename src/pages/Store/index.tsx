@@ -1,10 +1,20 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 
 import { Header, Dropdown, ProductCard } from '@/components'
+import { IProductResponse } from '@/shared/definitions/product'
+import { httpClient } from '@/services/http/client'
 
 import css from './Store.sass'
 
 export const Store: React.FC = (): ReactElement => {
+  const [products, setProducts] = useState<IProductResponse[]>([])
+
+  useEffect(() => {
+    httpClient().get<IProductResponse[]>({ url: 'products' }).then(response => {
+      setProducts(response.data)
+    })
+  }, [])
+
   return (
     <>
       <Header />
@@ -82,24 +92,11 @@ export const Store: React.FC = (): ReactElement => {
             </div>
           </aside>
           <ul className={css.W__Products}>
-            <li className={css.P__Item}>
-              <ProductCard />
-            </li>
-            <li className={css.P__Item}>
-              <ProductCard />
-            </li>
-            <li className={css.P__Item}>
-              <ProductCard />
-            </li>
-            <li className={css.P__Item}>
-              <ProductCard />
-            </li>
-            <li className={css.P__Item}>
-              <ProductCard />
-            </li>
-            <li className={css.P__Item}>
-              <ProductCard />
-            </li>
+            {products.map(product => (
+              <li key={product.id} className={css.P__Item}>
+                <ProductCard data={product} />
+              </li>
+            ))}
           </ul>
         </div>
       </section>
